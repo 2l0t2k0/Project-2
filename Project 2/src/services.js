@@ -1,8 +1,8 @@
 const TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN;
 
 
-export async function getIDlist() {  //Get's ID list
-  const url = 'https://oldschool.runescape.wiki/?title=Module%3AGEIDs%2Fdata.json&action=raw&ctype=application%2Fjson';
+export async function getIDlist() {  //Get's ID list + basic item data
+  const url = 'https://prices.runescape.wiki/api/v1/osrs/mapping';
 const options = {method: 'GET'};
 
 try {

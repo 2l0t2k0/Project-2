@@ -14,8 +14,17 @@ const App = () =>{
 
 const [idList, setidList] = useState({})
 const [currentItem, setcurrentItem] = useState({})
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+
+useEffect(()=>{
+    const getData = async ()=>{
+            const data = await getIDlist()
+            setidList(data)
+            
+        };
+        getData()},[]
+      )
+  
+
 
   
 
