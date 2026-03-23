@@ -7,3 +7,5 @@ const AllRecipes = ()=>{
         </>
     )
 }
+
+export default AllRecipes
