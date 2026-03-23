@@ -6,7 +6,7 @@ const NavBar =() => {
     <>
     <ul>
         <li><NavLink to="items">All Items</NavLink></li>
-        <li><NavLink to="items/Nature_Rune">Nature Rune</NavLink></li>
+        <li><NavLink to="items/561">Nature Rune</NavLink></li>
     </ul>
     
     </>

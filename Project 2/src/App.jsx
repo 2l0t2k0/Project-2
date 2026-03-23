@@ -7,7 +7,7 @@ import AllItems from './pages/allitems.jsx';
 import AllRecipes from './pages/recipes.jsx'
 import { getIDlist } from './services.js';
 
-const tempID = 561
+const id = 561
 const tempName = "Nature Rune"
 
 const App = () =>{
@@ -22,7 +22,7 @@ const [currentItem, setcurrentItem] = useState({})
 
 return (
   <>
-  <h1>Hello World</h1>
+  <h1>Item Tracker</h1>
   
   <NavBar />
     <Routes>
