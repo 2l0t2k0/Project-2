@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState,useEffect, createContext } from 'react'
 import { Route, Routes } from "react-router";
 import './App.css'
 import NavBar from './components/NavBar.jsx'
@@ -10,9 +10,14 @@ import { getIDlist } from './services.js';
 const id = 561
 const tempName = "Nature Rune"
 
+
+export const DataDump = createContext()
+
+
+
 const App = () =>{
 
-const [idList, setidList] = useState({})
+const [idList, setidList] = useState([])
 const [currentItem, setcurrentItem] = useState({})
 
 useEffect(()=>{
@@ -23,8 +28,6 @@ useEffect(()=>{
         };
         getData()},[]
       )
-  
-
 
   
 
@@ -32,16 +35,17 @@ useEffect(()=>{
 return (
   <>
   <h1>Item Tracker</h1>
-  
-  <NavBar />
-    <Routes>
-        <Route path="/items/:id" element={<OneItem />} />
-        <Route path="/items" element={<AllItems />} />
-        <Route path="/recipes/:recipeid" />
-        <Route path="/recipes" element={<AllRecipes />}/>
-        
-    </Routes>
-  
+  <DataDump value={idList}>
+    <NavBar />
+      <Routes>
+          <Route path="/items/:id" element={<OneItem />} />
+          <Route path="/items" element={<AllItems />} />
+          <Route path="/recipes/:recipeid" />
+          <Route path="/recipes" element={<AllRecipes />}/>
+          
+      </Routes>
+      <OneItem />
+  </DataDump>
   
   
   </>

@@ -5,7 +5,7 @@ const AllItems = ()=>{
 
 return (
     <>
-    <h2>All Items</h2>
+    <h2>Search Item</h2>
     <ItemSearch />
     </>
 )

@@ -9,7 +9,7 @@ const OneItem = ()=>{
         <h2>One Item</h2>
         
         <ItemPage />
-        <button onClick={getOneItem}>Click to request data(TEST)</button>
+        
         
         </>
     )
