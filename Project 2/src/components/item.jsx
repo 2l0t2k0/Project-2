@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
-import { getOneItem } from "../services"
+import { getOneItem, addFavourite} from "../services"
 import { useEffect, useState,useContext } from "react"
 import { DataDump } from "../App"
+
 
 const ItemPage = () =>{
 const {id} = useParams()
@@ -11,23 +12,9 @@ const [examine,setExamine]= useState("Placeholder")
 const [highalch,setHighAlch]= useState(0)
 const datadump = useContext(DataDump)
 const [name,setName] = useState("Placeholder")
-
-/*
-
-const handleAdd(event)=>{
-        
-    }
-
-
-
-
-
-
-
-
-
-
-*/ 
+const [formData, setFormData] = useState({"Name":"","ID":0, "Price":0
+})
+const [currentDate, setCurrentDate] = useState(new Date());
 
 useEffect(()=>{
     const getData = async ()=>{
@@ -39,15 +26,16 @@ useEffect(()=>{
     setName(match.name)
     setExamine(match.examine)
     setHighAlch(match.highalch)
-    
+    setFormData({"Name":match.name, "ID":match.id,"Price":data.data[id].high})
     };
     getData()},[id]
 
 )
- //console.log(data)
- 
-//console.log(match)
- 
+
+const handleAdd = (event)=>{
+    
+    addFavourite(formData)
+    }
 
 
 
@@ -59,7 +47,10 @@ return (
 <h2>Latest Buying Price:{buy}</h2>
 <h2>High Alch:{highalch}</h2>
 <h3>{examine}</h3>
-<span><button>Add</button><button>Remove</button><button>Update</button></span>
+<span>
+    <button onClick={handleAdd}>Add</button>
+    <button>Update</button>
+</span>
 </>
 )
 }

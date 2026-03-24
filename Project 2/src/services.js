@@ -53,7 +53,7 @@ try {
   
 }
 
-export async function getFavourite(item) {
+export async function getFavourite(item) {  //pulls airtable contents
 const url = 'https://api.airtable.com/v0/appfDObNRbPpl7fnQ/Favourite';
 const options = {
   method: 'GET',

@@ -8,6 +8,7 @@ import AllRecipes from './pages/recipes.jsx'
 import { getFavourite, getIDlist } from './services.js';
 import ItemSearch from './components/itemsearch.jsx';
 import ListFavourite from './components/favourite.jsx';
+import AddtoFavourite from './pages/addfavourite.jsx';
 
 
 
@@ -48,13 +49,9 @@ return (
           <Route path="/items" element={<AllItems />} />
           <Route path="/items/search" element={<ItemSearch />} />          
           <Route path="/items/:id" element={<OneItem />} />
-          <Route path="/recipes/:recipeid" />
-          <Route path="/recipes" element={<AllRecipes />}/>
       </Routes>
       <ListFavourite favourite={favourite} />
-  </DataDump>
-  
-  
+  </DataDump> 
   </>
 )
 

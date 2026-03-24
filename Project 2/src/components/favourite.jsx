@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 const ListFavourite =({favourite})=>{
-    console.log(favourite)
+    
 
 
     return (
@@ -9,6 +9,7 @@ const ListFavourite =({favourite})=>{
         {favourite?.records?.map((item) =>(
             <li key={item?.fields?.ID}>
                 <NavLink to={`items/${item?.fields?.ID}`}>{item?.fields?.Name}</NavLink>
+                <h4>Price: {item?.fields?.Price}</h4>
             </li>
         ))}
         
