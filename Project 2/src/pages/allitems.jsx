@@ -1,12 +1,13 @@
+import AllItemsList from "../components/allitems"
 
-import ItemSearch from '../components/itemsearch.jsx'
+
 
 const AllItems = ()=>{
 
 return (
     <>
-    <h2>Search Item</h2>
-    <ItemSearch />
+    <h2>All items</h2>
+    <AllItemsList />
     </>
 )
 

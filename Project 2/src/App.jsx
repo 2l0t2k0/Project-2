@@ -44,7 +44,7 @@ return (
           <Route path="/recipes" element={<AllRecipes />}/>
           
       </Routes>
-      <OneItem />
+      
   </DataDump>
   
   
