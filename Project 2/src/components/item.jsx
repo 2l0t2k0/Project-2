@@ -4,11 +4,11 @@ import { useEffect, useState,useContext } from "react"
 import { DataDump } from "../App"
 
 const ItemPage = () =>{
-//const {id} = useParams
+const {id} = useParams()
 const [buy, setBuy] = useState(0)
 const [sell,setSell]= useState(0)
-const id = 561
-const data = useContext(DataDump)
+
+const datadump = useContext(DataDump)
 const [name,setName] = useState("Placeholder")
 useEffect(()=>{
     const getData = async ()=>{
@@ -16,15 +16,18 @@ useEffect(()=>{
     
         setBuy(data.data[id].high)
         setSell(data.data[id].low)
-        
+    const match = datadump.find(datadump => datadump.id == id)    
+    setName(match.name)
+
+    
     };
     getData()},[id]
 
 )
-console.log(typeof data)
-// const match = data.find(obj => obj.id === id)
-// console.log(match)
-// setName(match.name)
+ //console.log(data)
+ 
+//console.log(match)
+ 
 
 
 

@@ -38,8 +38,9 @@ return (
   <DataDump value={idList}>
     <NavBar />
       <Routes>
-          <Route path="/items/:id" element={<OneItem />} />
+          
           <Route path="/items" element={<AllItems />} />
+          <Route path="/items/:id" element={<OneItem />} />
           <Route path="/recipes/:recipeid" />
           <Route path="/recipes" element={<AllRecipes />}/>
           
