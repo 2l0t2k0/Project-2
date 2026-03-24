@@ -30,17 +30,44 @@ try {
     
 }
 
-export async function getIcon(id) { //Returns Picture by ID
-  const url = `https://secure.runescape.com/m=itemdb_oldschool/obj_big.gif?id=${id}`;
-const options = {method: 'GET'};
+
+export async function addFavourite(item) {
+  const url = 'https://api.airtable.com/v0/appfDObNRbPpl7fnQ/Favourite';
+  const data ={fields:item}
+const options = {
+  method: 'POST',
+  headers: {
+    authorization: `Bearer ${TOKEN}`,
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify(data)
+};
 
 try {
   const response = await fetch(url, options);
   const data = await response.json();
-  return(data);
+  console.log(data);
 } catch (error) {
   console.error(error);
 }
   
 }
 
+export async function getFavourite(item) {
+const url = 'https://api.airtable.com/v0/appfDObNRbPpl7fnQ/Favourite';
+const options = {
+  method: 'GET',
+  headers: {
+    authorization: `Bearer ${TOKEN}`
+  }
+};
+
+try {
+  const response = await fetch(url, options);
+  const data = await response.json();
+  return data;
+} catch (error) {
+  console.error(error);
+}
+  
+}

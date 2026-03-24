@@ -1,12 +1,10 @@
 
+
+//use search for input type
 const ItemSearch =()=>{
 
     function searchhandler(FormData){
-        const input = FormData.get("Name")
-        const found = Object.keys(idList).filter(key => key.includes(input))
-               
-        console.log(found)
-
+       
         
     }
 

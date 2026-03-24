@@ -5,10 +5,10 @@ import NavBar from './components/NavBar.jsx'
 import OneItem from  './pages/oneitem.jsx'
 import AllItems from './pages/allitems.jsx';
 import AllRecipes from './pages/recipes.jsx'
-import { getIDlist } from './services.js';
+import { getFavourite, getIDlist } from './services.js';
+import ItemSearch from './components/itemsearch.jsx';
+import ListFavourite from './components/favourite.jsx';
 
-const id = 561
-const tempName = "Nature Rune"
 
 
 export const DataDump = createContext()
@@ -18,7 +18,7 @@ export const DataDump = createContext()
 const App = () =>{
 
 const [idList, setidList] = useState([])
-const [currentItem, setcurrentItem] = useState({})
+const [favourite, setFavourite] = useState({})
 
 useEffect(()=>{
     const getData = async ()=>{
@@ -29,7 +29,14 @@ useEffect(()=>{
         getData()},[]
       )
 
-  
+useEffect(()=>{
+    const getData = async ()=>{
+      const data = await getFavourite()
+      setFavourite(data)
+    };
+    getData()
+},[]
+)  
 
 
 return (
@@ -38,14 +45,13 @@ return (
   <DataDump value={idList}>
     <NavBar />
       <Routes>
-          
           <Route path="/items" element={<AllItems />} />
+          <Route path="/items/search" element={<ItemSearch />} />          
           <Route path="/items/:id" element={<OneItem />} />
           <Route path="/recipes/:recipeid" />
           <Route path="/recipes" element={<AllRecipes />}/>
-          
       </Routes>
-      
+      <ListFavourite favourite={favourite} />
   </DataDump>
   
   
@@ -59,11 +65,6 @@ export default App
 
 
 /* GRAVEYARD
-
-
-<Route path="/pets" element={<AllPetsPage />} />
-<Route path="/pets/:petId" element={<OnePetPage />} />
-        <Route path="/pets/new" element={<CreatePetPage />} />
 
 
 
