@@ -182,3 +182,43 @@
     border-right-color: var(--border);
   }
 }
+
+.Nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Centers items */
+}
+.Navli {
+  display: inline-block;
+  margin: 0 10px; 
+  
+}
+
+.container {
+  display: flex;
+  align-items: top;
+  column-gap: 10px;
+}
+
+.item {
+  list-style-type: none;
+  flex: 1;
+  padding: 15px;
+  border: 1px solid black;
+}
+
+.fav {
+  list-style-type: none;
+  text-align: left;
+  
+}
+
+.favli{
+  display: flex;
+   border: 1px solid black;
+}
+.favliitem{
+  flex: 1;
+  padding: 10px;
+}

@@ -1,21 +1,27 @@
-import { NavLink, UNSAFE_shouldHydrateRouteLoader } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { deleteFavourite } from "../services"
 
 
-const ListFavourite =({favourite})=>{
+const ListFavourite =({favourite}  )=>{
+   
     const handleDelete = async (x)=>{
         await deleteFavourite(x)
-        setReload(1)
+        
     }
 
 
     return (
-        <ul>
+        <ul className="fav">
         {favourite?.records?.map((item) =>(
-            <li key={item?.id}>
-                <NavLink to={`items/${item?.fields?.ID}`}>{item?.fields?.Name}</NavLink>
-                <h4>Price: {item?.fields?.Price}</h4>
-                <button onClick={()=>handleDelete(item?.id)}>Delete</button>
+            <li key={item?.id} className="favli">
+                <div className="favliitem">
+                    <NavLink to={`items/${item?.fields?.ID}`} className="favliitem">{item?.fields?.Name}</NavLink>
+                    <h4>Price: {item?.fields?.Price}</h4>
+                </div>
+                <div className="favliitem">
+                 <button onClick={()=>handleDelete(item?.id)}>Delete</button>   
+                </div>
+                
             </li>
         ))}
         
@@ -23,5 +29,5 @@ const ListFavourite =({favourite})=>{
         </ul>
     )
 }
-
+//
 export default ListFavourite

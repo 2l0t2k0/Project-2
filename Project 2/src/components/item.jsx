@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams,  } from "react-router-dom"
 import { getOneItem, addFavourite} from "../services"
 import { useEffect, useState,useContext } from "react"
 import { DataDump } from "../App"
@@ -14,7 +14,7 @@ const datadump = useContext(DataDump)
 const [name,setName] = useState("Placeholder")
 const [formData, setFormData] = useState({"Name":"","ID":0, "Price":0
 })
-const [currentDate, setCurrentDate] = useState(new Date());
+
 
 useEffect(()=>{
     const getData = async ()=>{
@@ -32,9 +32,10 @@ useEffect(()=>{
 
 )
 
-const handleAdd = (event)=>{
+const handleAdd =  async (event)=>{
     
-    addFavourite(formData)
+    await addFavourite(formData)
+  
     }
 
 
