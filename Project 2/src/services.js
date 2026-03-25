@@ -73,7 +73,6 @@ try {
 }
 
 export async function deleteFavourite(itemId) {
-  // const petId = "rec23AmVDNGCfOUEk";
   const url = `https://api.airtable.com/v0/appfDObNRbPpl7fnQ/Favourite/${itemId}`;
   try {
     const response = await fetch(url, {
