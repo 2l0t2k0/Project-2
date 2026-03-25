@@ -4,7 +4,6 @@ import './App.css'
 import NavBar from './components/NavBar.jsx'
 import OneItem from  './pages/oneitem.jsx'
 import AllItems from './pages/allitems.jsx';
-import AllRecipes from './pages/recipes.jsx'
 import { getFavourite, getIDlist } from './services.js';
 import ItemSearch from './components/itemsearch.jsx';
 import ListFavourite from './components/favourite.jsx';
@@ -20,6 +19,8 @@ const App = () =>{
 
 const [idList, setidList] = useState([])
 const [favourite, setFavourite] = useState({})
+const [reload,setReload] = useState( 0 )
+
 
 useEffect(()=>{
     const getData = async ()=>{
@@ -34,10 +35,13 @@ useEffect(()=>{
     const getData = async ()=>{
       const data = await getFavourite()
       setFavourite(data)
+      setReload(0)
     };
     getData()
-},[]
+},[reload]
 )  
+
+
 
 
 return (

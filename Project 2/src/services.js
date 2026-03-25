@@ -71,3 +71,26 @@ try {
 }
   
 }
+
+export async function deleteFavourite(itemId) {
+  // const petId = "rec23AmVDNGCfOUEk";
+  const url = `https://api.airtable.com/v0/appfDObNRbPpl7fnQ/Favourite/${itemId}`;
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${TOKEN}`,
+        "content-type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
