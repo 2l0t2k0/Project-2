@@ -6,8 +6,7 @@ const OneItem = ()=>{
 
     return (
         <>
-        <h2>One Item</h2>
-        
+           
         <ItemPage />
         
         

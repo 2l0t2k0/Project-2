@@ -61,7 +61,7 @@ return (
       </Routes>
         </div>
         <div className='item' >
-      <h3 >Favourites </h3>
+      <h3 >Favourites <button onClick={()=>changeReload()}>Click Me to update list(placeholder)</button> </h3>
       <ListFavourite favourite={favourite} updateReload={changeReload} />
       </div>
       </div>
