@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom"
 import { deleteFavourite } from "../services"
-
+import { useContext } from "react"
+import { reloadFav } from "../App"
 
 const ListFavourite =({favourite}  )=>{
-   
+   const {reload,changeReload} = useContext(reloadFav)
+
+
     const handleDelete = async (x)=>{
         await deleteFavourite(x)
-        
+        changeReload()
     }
 
 

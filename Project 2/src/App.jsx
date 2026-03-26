@@ -13,7 +13,7 @@ import ListFavourite from './components/favourite.jsx';
 
 
 export const DataDump = createContext()
-
+export const reloadFav = createContext()
 
 
 const App = () =>{
@@ -22,6 +22,8 @@ const [idList, setidList] = useState([])
 const [favourite, setFavourite] = useState({})
 const [reload,setReload] = useState(0)
 const [debugreload, setDebugReload] = useState(0)
+
+
 
 useEffect(()=>{
     const getData = async ()=>{
@@ -50,26 +52,32 @@ const debugreloaditemlist =() =>{
   setDebugReload(debugreload+1)
 
 }
-
+const reloadfavourite ={
+  reload,
+  changeReload
+}
 
 return (
 <>
   <h1>Item Tracker</h1>
   <DataDump value={idList}>
+    <reloadFav.Provider value={reloadfavourite}>
     <NavBar />
       <div className='container'>
         <div className='item'>
+      
       <Routes>
           <Route path="/items" element={<AllItems />} />
           <Route path="/items/search" element={<ItemSearch />} />          
           <Route path="/items/:id" element={<OneItem />} />
       </Routes>
+      
         </div>
         <div className='item' >
       <h3 >Favourites <button onClick={()=>changeReload()}>Click Me to update list(placeholder)</button> </h3>
       <ListFavourite favourite={favourite} updateReload={changeReload} />
       </div>
-      </div>
+      </div></reloadFav.Provider>
   </DataDump> 
   <button onClick={debugreloaditemlist}>Click to force reload of all items</button>
 </>
