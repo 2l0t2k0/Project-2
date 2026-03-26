@@ -17,7 +17,7 @@ try {
 
 
 export async function getOneItem(id) { //return 1 item by ID
-    const url = `http://prices.runescape.wiki/api/v1/osrs/latest?id=${id}`;
+    const url = `https://prices.runescape.wiki/api/v1/osrs/latest?id=${id}`;
 const options = {method: 'GET'};
 
 try {

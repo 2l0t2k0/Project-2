@@ -21,7 +21,7 @@ const App = () =>{
 const [idList, setidList] = useState([])
 const [favourite, setFavourite] = useState({})
 const [reload,setReload] = useState(0)
-
+const [debugreload, setDebugReload] = useState(0)
 
 useEffect(()=>{
     const getData = async ()=>{
@@ -29,7 +29,7 @@ useEffect(()=>{
             setidList(data)
             
         };
-        getData()},[]
+        getData()},[debugreload]
       )
 
 useEffect(()=>{
@@ -44,6 +44,11 @@ useEffect(()=>{
 
 const changeReload =()=>{
   setReload(reload+1)
+}
+
+const debugreloaditemlist =() =>{
+  setDebugReload(debugreload+1)
+
 }
 
 
@@ -66,6 +71,7 @@ return (
       </div>
       </div>
   </DataDump> 
+  <button onClick={debugreloaditemlist}>Click to force reload of all items</button>
 </>
 )
 
